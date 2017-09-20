@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+- Add Sequelize models for product, collection center and manager
 - Added sequelize configuration
 - Added glue to instantiate server
 - Added good console logging
