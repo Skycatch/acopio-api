@@ -9,6 +9,6 @@ const internals = {
     const api = new API(Config);
     api.run();
   }
-}
+};
 
 internals.run();
