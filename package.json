@@ -23,7 +23,10 @@
     "glue": "^4.2.0",
     "good": "^7.3.0",
     "good-console": "^6.4.0",
-    "hapi": "^16.6.0"
+    "hapi": "^16.6.0",
+    "hapi-sequelize": "^3.0.4",
+    "mysql2": "^1.4.2",
+    "sequelize": "^4.9.0"
   },
   "devDependencies": {
     "eslint": "^3.12.1",

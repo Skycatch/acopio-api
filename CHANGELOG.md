@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+- Added sequelize configuration
 - Added glue to instantiate server
 - Added good console logging
 - Eslint configuration
