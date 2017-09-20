@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  acopio_api:
+    build: .
+    env_file: .env
+    image: skycatch/acopio-api
+    environment:
+      - ACOPIO_API_MYSQL_DATABASE=acopio
+      - ACOPIO_API_MYSQL_HOST=db
+      - ACOPIO_API_MYSQL_USER=acopio
+      - ACOPIO_API_MYSQL_PASSWORD=acopio
+      - NODE_DEBUG=acopio-api
+    ports:
+      - "9999:9999"
+    depends_on:
+      - db
+  db:
+    image: mariadb:10.3
+    environment:
+      - MYSQL_DATABASE=acopio
+      - MYSQL_USER=acopio
+      - MYSQL_PASSWORD=acopio
