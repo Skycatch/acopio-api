@@ -1,0 +1,29 @@
+{
+  "name": "acopio-api",
+  "version": "1.0.0-alpha1",
+  "description": "API para Centros de Acopio",
+  "main": "lib/api.js",
+  "scripts": {
+    "start": "node bin/api.js",
+    "lint": "eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Skycatch/acopio-api.git"
+  },
+  "author": "Skycatch",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Skycatch/acopio-api/issues"
+  },
+  "homepage": "https://github.com/Skycatch/acopio-api#readme",
+  "dependencies": {
+    "getenv2": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.12.1",
+    "eslint-config-hapi": "^10.0.0",
+    "eslint-plugin-hapi": "^4.0.0"
+  }
+}
