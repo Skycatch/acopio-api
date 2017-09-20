@@ -5,7 +5,6 @@ const Getenv = require('getenv2');
 exports.port = Getenv('ACOPIO_API_PORT', 9999);
 
 exports.auth0 = {
-  // TODO move secrets to env
   clientId: Getenv('AUTH0_CLIENT'),
   clientSecret: Getenv('AUTH0_CLIENT_SECRET'),
   domain: Getenv('AUTH0_DOMAIN', 'acopio-api.auth0.com')
