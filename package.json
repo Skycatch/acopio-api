@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/Skycatch/acopio-api#readme",
   "dependencies": {
-    "getenv2": "^1.0.0"
+    "getenv2": "^1.0.0",
+    "hapi": "^16.6.0"
   },
   "devDependencies": {
     "eslint": "^3.12.1",

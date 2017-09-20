@@ -21,3 +21,4 @@ services:
       - MYSQL_DATABASE=acopio
       - MYSQL_USER=acopio
       - MYSQL_PASSWORD=acopio
+      - MYSQL_RANDOM_ROOT_PASSWORD=1

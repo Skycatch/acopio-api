@@ -7,7 +7,11 @@ const internals = {
   run() {
 
     const api = new API(Config);
-    api.run();
+    api.run()
+      .catch((err) => {
+        console.error(err);
+        process.exit(1);
+      });
   }
 };
 
