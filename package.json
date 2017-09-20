@@ -4,7 +4,7 @@
   "description": "API para Centros de Acopio",
   "main": "lib/api.js",
   "scripts": {
-    "start": "node bin/api.js",
+    "start": "CONFIG=./config/config.js node lib/start",
     "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,6 +20,9 @@
   "homepage": "https://github.com/Skycatch/acopio-api#readme",
   "dependencies": {
     "getenv2": "^1.0.0",
+    "glue": "^4.2.0",
+    "good": "^7.3.0",
+    "good-console": "^6.4.0",
     "hapi": "^16.6.0"
   },
   "devDependencies": {
