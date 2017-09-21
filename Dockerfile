@@ -7,4 +7,4 @@ COPY package-lock.json /app/
 RUN npm install
 COPY . /app
 
-ENTRYPOINT [ "node", "bin/api" ])
+ENTRYPOINT [ "node", "lib/start" ])
