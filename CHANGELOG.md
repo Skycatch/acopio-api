@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+- Add travis config
 - Fixed POST enpoint for `/acopios` using new schema
 - Update schema to reflect new one
 - CORS config
