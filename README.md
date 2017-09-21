@@ -121,7 +121,7 @@ API to connect to collection centers db
 - headers / *encabezados*
   - requires authentication / *requiere autenticación*
 
-### acopios/:id/productos PUT (_collection centers/products_)
+### acopios/:id/productos GET (_collection centers/products_)
 
 - url: `/acopios/:id/productos`
 - method: GET
@@ -144,7 +144,45 @@ API to connect to collection centers db
   ```
 
 
-#### users/
+#### responsables/ GET (_person in charge_)
+
+- url: `/responsables/`
+- method: GET
+- url params / *parámetros de la url*: _none_ / _ninguno_
+- success reponse / *respuesta exitosa*:
+  - code / *código*: `200`
+  - content / *contenido*:
+  ```
+    [
+      {
+        idResponsablesDeCentros: <int>,
+        nombreResponsable: <string>, // name of person in charge
+        telefonoResponsable: <string>, // phone of person in charge
+        TwitterResponsable: <string>, // Twitter username of person in charge
+        emailResponsable: <string> // Email of person in charge
+      }
+      ...
+    ]
+  ```
+
+#### responsables/:id GET (_person in charge_)
+
+- url: `/responsables/:id`
+- method: GET
+- url params / *parámetros de la url*:
+  - id <int>: id for person in charge / _id del responsable_
+- success reponse / *respuesta exitosa*:
+  - code / *código*: `200`
+  - content / *contenido*:
+  ```
+    {
+      idResponsablesDeCentros: <int>,
+      nombreResponsable: <string>, // name of person in charge
+      telefonoResponsable: <string>, // phone of person in charge
+      TwitterResponsable: <string>, // Twitter username of person in charge
+      emailResponsable: <string> // Email of person in charge
+    }
+  ```
 
 -----
 
