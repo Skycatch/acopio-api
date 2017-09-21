@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+- Make relations in `/acopios` not required
 - Added PUT enpoint for `/acopios/{id}` using new schema
 - Add travis config
 - Fixed POST enpoint for `/acopios` using new schema
