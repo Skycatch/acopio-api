@@ -25,6 +25,7 @@
     "good-console": "^6.4.0",
     "hapi": "^16.6.0",
     "hapi-auth-jwt2": "^7.3.0",
+    "hapi-cors": "^1.0.1",
     "hapi-sequelize": "3.x.x",
     "hapi-swagger": "^7.8.1",
     "inert": "^4.2.1",
