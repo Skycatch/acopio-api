@@ -9,6 +9,7 @@ const internals = {
     const api = new API(Config);
     api.run()
       .catch((err) => {
+
         console.error(err);
         process.exit(1);
       });
