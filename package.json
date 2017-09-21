@@ -19,18 +19,20 @@
   },
   "homepage": "https://github.com/Skycatch/acopio-api#readme",
   "dependencies": {
-    "auth0": "^2.7.0",
     "getenv2": "^1.0.0",
     "glue": "^4.2.0",
     "good": "^7.3.0",
     "good-console": "^6.4.0",
     "hapi": "^16.6.0",
     "hapi-auth-jwt2": "^7.3.0",
-    "hapi-sequelize": "^3.0.4",
+    "hapi-sequelize": "3.x.x",
+    "hapi-swagger": "^7.8.1",
+    "inert": "^4.2.1",
     "jwks-rsa": "^1.2.0",
     "mysql2": "^1.4.2",
     "sequelize": "^4.9.0",
-    "settings-module": "^0.1.1"
+    "settings-module": "^0.1.1",
+    "vision": "^4.1.1"
   },
   "devDependencies": {
     "eslint": "^3.12.1",
