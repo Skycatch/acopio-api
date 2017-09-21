@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # https://github.com/sequelpro/sequelpro
 #
-# Host: acopio-db.cnc2gbzsnrq2.us-west-2.rds.amazonaws.com (MySQL 5.6.35-log)
-# Database: acopio
-# Generation Time: 2017-09-21 07:06:18 +0000
+# Host: 127.0.0.1 (MySQL 5.7.18)
+# Database: acopio-db
+# Generation Time: 2017-09-21 23:07:37 +0000
 # ************************************************************
 
 
@@ -20,6 +20,22 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
+# Dump of table CentroDeAcopioProductos
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `CentroDeAcopioProductos`;
+
+CREATE TABLE `CentroDeAcopioProductos` (
+  `producto_id` int(11) NOT NULL,
+  `centro_de_acopio_id` int(11) NOT NULL,
+  PRIMARY KEY (`producto_id`,`centro_de_acopio_id`),
+  KEY `centro_de_acopio_id` (`centro_de_acopio_id`),
+  CONSTRAINT `centrodeacopioproductos_ibfk_1` FOREIGN KEY (`producto_id`) REFERENCES `Productos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `centrodeacopioproductos_ibfk_2` FOREIGN KEY (`centro_de_acopio_id`) REFERENCES `CentrosDeAcopio` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
 # Dump of table CentroDeAcopioResponsables
 # ------------------------------------------------------------
 
@@ -27,7 +43,11 @@ DROP TABLE IF EXISTS `CentroDeAcopioResponsables`;
 
 CREATE TABLE `CentroDeAcopioResponsables` (
   `centro_de_acopio_id` int(11) NOT NULL,
-  `responsable_id` int(11) NOT NULL
+  `responsable_id` int(11) NOT NULL,
+  PRIMARY KEY (`centro_de_acopio_id`,`responsable_id`),
+  KEY `responsable_id` (`responsable_id`),
+  CONSTRAINT `centrodeacopioresponsables_ibfk_1` FOREIGN KEY (`centro_de_acopio_id`) REFERENCES `CentrosDeAcopio` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `centrodeacopioresponsables_ibfk_2` FOREIGN KEY (`responsable_id`) REFERENCES `Responsables` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `CentroDeAcopioResponsables` WRITE;
@@ -35,9 +55,9 @@ LOCK TABLES `CentroDeAcopioResponsables` WRITE;
 
 INSERT INTO `CentroDeAcopioResponsables` (`centro_de_acopio_id`, `responsable_id`)
 VALUES
-	(1,3),
-	(2,2),
-	(2,1);
+  (2,1),
+  (2,2),
+  (1,3);
 
 /*!40000 ALTER TABLE `CentroDeAcopioResponsables` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -49,14 +69,13 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `CentrosDeAcopio`;
 
 CREATE TABLE `CentrosDeAcopio` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(400) DEFAULT NULL,
-  `direccion` varchar(1000) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) DEFAULT NULL,
+  `direccion` varchar(255) DEFAULT NULL,
   `latitud` double DEFAULT NULL,
   `longitud` double DEFAULT NULL,
-  `status` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`)
+  `status` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `CentrosDeAcopio` WRITE;
@@ -64,8 +83,8 @@ LOCK TABLES `CentrosDeAcopio` WRITE;
 
 INSERT INTO `CentrosDeAcopio` (`id`, `nombre`, `direccion`, `latitud`, `longitud`, `status`)
 VALUES
-	(1,'Centro 1','No se',37.4,-122.2,'Abierto'),
-	(2,'Centro 2','Tampoco',35.5,-100,'Break de Meditacion');
+  (1,'Centro 1','No se',37.4,-122.2,'Abierto'),
+  (2,'Centro 2','Tampoco',35.5,-100,'Break de Meditacion');
 
 /*!40000 ALTER TABLE `CentrosDeAcopio` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -79,19 +98,22 @@ DROP TABLE IF EXISTS `CentrosDeAcopioProductos`;
 CREATE TABLE `CentrosDeAcopioProductos` (
   `centro_de_acopio_id` int(11) NOT NULL,
   `producto_id` int(11) NOT NULL,
-  `falta` tinyint(1) DEFAULT NULL
+  PRIMARY KEY (`centro_de_acopio_id`,`producto_id`),
+  KEY `producto_id` (`producto_id`),
+  CONSTRAINT `centrosdeacopioproductos_ibfk_1` FOREIGN KEY (`centro_de_acopio_id`) REFERENCES `CentrosDeAcopio` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `centrosdeacopioproductos_ibfk_2` FOREIGN KEY (`producto_id`) REFERENCES `Productos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `CentrosDeAcopioProductos` WRITE;
 /*!40000 ALTER TABLE `CentrosDeAcopioProductos` DISABLE KEYS */;
 
-INSERT INTO `CentrosDeAcopioProductos` (`centro_de_acopio_id`, `producto_id`, `falta`)
+INSERT INTO `CentrosDeAcopioProductos` (`centro_de_acopio_id`, `producto_id`)
 VALUES
-	(1,1,1),
-	(2,1,0),
-	(1,2,0),
-	(2,2,1),
-	(2,3,1);
+  (1,1),
+  (2,1),
+  (1,2),
+  (2,2),
+  (2,3);
 
 /*!40000 ALTER TABLE `CentrosDeAcopioProductos` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -104,8 +126,8 @@ DROP TABLE IF EXISTS `Productos`;
 
 CREATE TABLE `Productos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) DEFAULT NULL,
-  `detalle` varchar(100) DEFAULT NULL,
+  `nombre` varchar(255) DEFAULT NULL,
+  `detalle` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -114,9 +136,9 @@ LOCK TABLES `Productos` WRITE;
 
 INSERT INTO `Productos` (`id`, `nombre`, `detalle`)
 VALUES
-	(1,'Agua','(Solo en botellas)'),
-	(2,'Atun','Latas chicas pls'),
-	(3,'Pañales','No tela');
+  (1,'Agua','(Solo en botellas)'),
+  (2,'Atun','Latas chicas pls'),
+  (3,'Pañales','No tela');
 
 /*!40000 ALTER TABLE `Productos` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -128,24 +150,23 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `Responsables`;
 
 CREATE TABLE `Responsables` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(200) DEFAULT NULL,
-  `email` varchar(200) DEFAULT NULL,
-  `telefono` varchar(45) DEFAULT NULL,
-  `facebook` varchar(80) DEFAULT NULL,
-  `twitter` varchar(80) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) DEFAULT NULL,
+  `telefono` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `twitter` varchar(255) DEFAULT NULL,
+  `facebook` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `Responsables` WRITE;
 /*!40000 ALTER TABLE `Responsables` DISABLE KEYS */;
 
-INSERT INTO `Responsables` (`id`, `nombre`, `email`, `telefono`, `facebook`, `twitter`)
+INSERT INTO `Responsables` (`id`, `nombre`, `telefono`, `email`, `twitter`, `facebook`)
 VALUES
-	(1,'Juan','juan@juan.juan','1234567890','juan','@juan'),
-	(2,'Juanito','juanito@juanito.juan','3216549870','juanito2','@juanito'),
-	(3,'Juanote','juanote@juan.juan','1928374650','juanito','@juanote_x');
+  (1,'Juan','1234567890','juan@juan.juan','@juan','juan'),
+  (2,'Juanito','3216549870','juanito@juanito.juan','@juanito','juanito2'),
+  (3,'Juanote','1928374650','juanote@juan.juan','@juanote_x','juanito');
 
 /*!40000 ALTER TABLE `Responsables` ENABLE KEYS */;
 UNLOCK TABLES;
