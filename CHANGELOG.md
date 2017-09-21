@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+- Added DELETE enpoint for `/responsables/{id}`
 - Make relations in `/acopios` not required
 - Added PUT enpoint for `/acopios/{id}` using new schema
 - Add travis config
