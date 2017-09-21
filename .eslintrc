@@ -1,0 +1,14 @@
+{
+  "extends": "eslint-config-hapi",
+  "rules": {
+    "indent": [
+      2,
+      2
+    ],
+    "no-undef": 2,
+    "no-console": 0
+  },
+  "parserOptions": {
+    "ecmaVersion": 8
+  }
+}
