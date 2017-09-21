@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+- Added POST enpoint for `/acopios`
 - Add GET methods for `/acopios` and `/acopios/{id}/productos`
 - Add Sequelize models for product, collection center and manager
 - Added sequelize configuration
