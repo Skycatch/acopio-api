@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+- Update schema to reflect new one
 - CORS config
 - Added POST enpoint for `/acopios`
 - Add GET methods for `/acopios` and `/acopios/{id}/productos`
