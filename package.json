@@ -28,6 +28,7 @@
     "hapi-sequelize": "3.x.x",
     "hapi-swagger": "^7.8.1",
     "inert": "^4.2.1",
+    "joi": "^11.0.3",
     "jwks-rsa": "^1.2.0",
     "mysql2": "^1.4.2",
     "sequelize": "^4.9.0",
